@@ -34,6 +34,8 @@ Cómo correrlo en vivo: tomar la distancia del pedido, compararla con 450 km y r
 
 Por qué 450: los 6 fraudes del entrenamiento tienen 485 km o más; los legítimos están casi todos en 425 km o menos (salvo 2 casos).
 
+**Notebook para correrlo en vivo:** [LINK](https://colab.research.google.com/drive/179jcS1WLwJe9G2twuXwUfwiE2ChFqAoq?usp=sharing) (también subido al repo como sistema_M03.ipynb)
+
 ## 3. Medición
 
 Filas = clase real, columnas = clase predicha. Clase positiva = fraude.
