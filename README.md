@@ -91,4 +91,4 @@ Datos → modelo → decisión → consecuencia.
 **Qué se rechazó y por qué:** usar la columna "Contracargo registrado" (fuga de información) y el diseño A (menor sensibilidad).
 
 **Corridas contra el evaluador:**
-(completar: número, nota, agujero detectado, qué cambiamos)
+- Corrida 1 · Nota 9,5/10 · Agujero: ¿qué cambio concreto se hizo para reducir falsos negativos y dónde se muestra con datos? · Qué cambiamos: se explicó que se eligió el diseño B por el costo del error (el falso negativo es el más caro) y porque A exige dos condiciones.
