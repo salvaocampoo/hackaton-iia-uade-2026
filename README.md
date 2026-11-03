@@ -64,7 +64,7 @@ Errores: FN en casos 18 y 20 (fraudes con 317 y 307 km), FP en el caso 19 (legí
 
 El falso negativo: despachar un pedido fraudulento (se pierde la mercadería y el banco cobra el contracargo). El falso positivo (frenar un pedido legítimo) cuesta un cliente enojado y una venta perdida, pero es menos grave.
 
-Qué cambiamos por él: se descartó el diseño A (distancia alta Y cuenta reciente), que daba 100 % en entrenamiento pero dejaba pasar más fraudes al exigir dos condiciones. Se eligió una sola condición (distancia), aceptando más falsos positivos a cambio de mayor sensibilidad.
+Qué cambiamos por él: se descartó el diseño A (distancia alta Y cuenta reciente). En entrenamiento ambos diseños tienen sensibilidad 100 %, así que no se distinguen ahí. Se eligió B (una sola condición) por el costo del error, porque A exige dos condiciones y por eso nunca detecta más fraudes que B. En prueba, A detecta 1 de 4 fraudes y B detecta 2 de 4. El umbral de 450 km no se modificó.
 
 ## 5. ¿Comparado contra qué?
 
