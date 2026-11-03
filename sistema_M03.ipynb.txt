@@ -1,0 +1,111 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Y3A0izf0bKgN",
+        "outputId": "88c7b770-f907-4c70-97f5-2997516001c3"
+      },
+      "outputs": [
+        {
+          "metadata": {
+            "tags": null
+          },
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Entrenamiento: VP=6 FN=0 FP=2 VN=6 (total 14)\n",
+            "  exactitud=85.7%  precisión=75.0%  sensibilidad=100.0%  especificidad=75.0%\n",
+            "Prueba: VP=2 FN=2 FP=1 VN=1 (total 6)\n",
+            "  exactitud=50.0%  precisión=66.7%  sensibilidad=50.0%  especificidad=50.0%\n"
+          ]
+        }
+      ],
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "# Datos de la ficha M03 (los mismos del repo de la cátedra)\n",
+        "url = (\"https://raw.githubusercontent.com/dharioprodigio/\"\n",
+        "       \"hackaton-iia-uade-2026/main/datos/M03.csv\")\n",
+        "df = pd.read_csv(url)\n",
+        "\n",
+        "UMBRAL_KM = 450\n",
+        "col_dist = df.columns[4]  # distancia envío-facturación (km)\n",
+        "\n",
+        "def predecir(distancia_km):\n",
+        "    \"\"\"R1: SI distancia >= 450 km ENTONCES SÍ (fraude), si no NO.\"\"\"\n",
+        "    return 1 if distancia_km >= UMBRAL_KM else 0\n",
+        "\n",
+        "df[\"pred\"] = df[col_dist].apply(predecir)\n",
+        "\n",
+        "def matriz(sub, nombre):\n",
+        "    vp = ((sub.pred == 1) & (sub.resultado_real == 1)).sum()\n",
+        "    fn = ((sub.pred == 0) & (sub.resultado_real == 1)).sum()\n",
+        "    fp = ((sub.pred == 1) & (sub.resultado_real == 0)).sum()\n",
+        "    vn = ((sub.pred == 0) & (sub.resultado_real == 0)).sum()\n",
+        "    print(f\"{nombre}: VP={vp} FN={fn} FP={fp} VN={vn} (total {vp+fn+fp+vn})\")\n",
+        "    print(f\"  exactitud={(vp+vn)/(vp+fn+fp+vn):.1%}\"\n",
+        "          f\"  precisión={vp/(vp+fp):.1%}\"\n",
+        "          f\"  sensibilidad={vp/(vp+fn):.1%}\"\n",
+        "          f\"  especificidad={vn/(vn+fp):.1%}\")\n",
+        "\n",
+        "matriz(df[df.conjunto == \"entrenamiento\"], \"Entrenamiento\")\n",
+        "matriz(df[df.conjunto == \"prueba\"], \"Prueba\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Caso nuevo en vivo: cambiá este número por la distancia del pedido\n",
+        "distancia = 600\n",
+        "\n",
+        "respuesta = \"SÍ (fraudulento)\" if predecir(distancia) == 1 else \"NO (legítimo)\"\n",
+        "print(f\"Distancia {distancia} km → {respuesta}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ptev0fr6bMoy",
+        "outputId": "e8206de0-c26b-406e-dcec-4a673af109c9"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Distancia 600 km → SÍ (fraudulento)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "s8tOKzH6bemc"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
