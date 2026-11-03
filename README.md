@@ -62,6 +62,8 @@ Errores: FN en casos 18 y 20 (fraudes con 317 y 307 km), FP en el caso 19 (legí
 
 **Costo de los falsos positivos.** En prueba la especificidad es 50 % (1 falso positivo sobre 2 pedidos legítimos). Cada falso positivo es un cliente legítimo frenado: cliente enojado y venta perdida. La ficha no da montos, así que no se le pone un número; se acepta porque el falso negativo es más caro.
 
+**Firmeza de los números.** La prueba tiene solo 4 fraudes reales: un fraude de más o de menos mueve la sensibilidad 25 puntos (de 50 % a 25 % o a 75 %). Con tan pocos casos, el 50 % no es una conclusión firme y no se puede afirmar que el sistema detecte la mitad de los fraudes en general.
+
 ## 4. El error más caro
 
 El falso negativo: despachar un pedido fraudulento (se pierde la mercadería y el banco cobra el contracargo). El falso positivo (frenar un pedido legítimo) cuesta un cliente enojado y una venta perdida, pero es menos grave.
