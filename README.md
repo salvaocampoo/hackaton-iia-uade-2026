@@ -1,9 +1,9 @@
 # M03 · ¿Este pedido es fraudulento?
 
-**Integrantes:** Salvador Ocampo
-**IA declarada:** Claude
-**Pista:** Reglas
-**Publicación en LinkedIn:** https://lnkd.in/p/dEEyPsrr
+- **Integrantes:** Salvador Ocampo
+- **IA declarada:** Claude
+- **Pista:** Reglas
+- **Publicación en LinkedIn:** https://lnkd.in/p/dEEyPsrr
 
 ---
 
