@@ -60,6 +60,8 @@ Errores: FN en casos 18 y 20 (fraudes con 317 y 307 km), FP en el caso 19 (legí
 
 **Entrenamiento contra prueba.** El sistema rinde bastante peor con casos nuevos (sensibilidad 100 % → 50 %). Con solo 14 casos de entrenamiento y 6 de prueba, el umbral se ajustó a los pocos casos vistos y la estimación es muy ruidosa: es sobreajuste y tamaño de muestra chico. No se tocó el umbral después de ver la prueba.
 
+**Costo de los falsos positivos.** En prueba la especificidad es 50 % (1 falso positivo sobre 2 pedidos legítimos). Cada falso positivo es un cliente legítimo frenado: cliente enojado y venta perdida. La ficha no da montos, así que no se le pone un número; se acepta porque el falso negativo es más caro.
+
 ## 4. El error más caro
 
 El falso negativo: despachar un pedido fraudulento (se pierde la mercadería y el banco cobra el contracargo). El falso positivo (frenar un pedido legítimo) cuesta un cliente enojado y una venta perdida, pero es menos grave.
