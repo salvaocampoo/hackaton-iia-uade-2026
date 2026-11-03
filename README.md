@@ -86,9 +86,11 @@ Datos → modelo → decisión → consecuencia.
 
 ## 7. Bitácora
 
-**Qué se le pidió a la IA (Claude):** leer la ficha M03 y el CSV, proponer umbrales usando solo los casos de entrenamiento, calcular las matrices y redactar el README.
-**Qué se aceptó:** la regla de distancia ≥ 450 km, la lectura del error más caro y las matrices.
-**Qué se rechazó y por qué:** usar la columna "Contracargo registrado" (fuga de información) y el diseño A (menor sensibilidad).
+- **Qué se le pidió a la IA (Claude):** leer la ficha M03 y el CSV, proponer umbrales usando solo los casos de entrenamiento, calcular las matrices y redactar el README.
+- **Qué se aceptó:** la regla de distancia ≥ 450 km, la lectura del error más caro y las matrices.
+- **Qué se rechazó y por qué:**
+  - Usar la columna "Contracargo registrado" (fuga de información).
+  - El diseño A (menor sensibilidad).
 
 **Corridas contra el evaluador:**
 - Corrida 1 · Nota 9,5/10 · Agujero: ¿qué cambio concreto se hizo para reducir falsos negativos y dónde se muestra con datos? · Qué cambiamos: se explicó que se eligió el diseño B por el costo del error (el falso negativo es el más caro) y porque A exige dos condiciones.
